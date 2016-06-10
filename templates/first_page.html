@@ -1,0 +1,29 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 главная страница{% endblock %}
+
+{% block content %}
+    <div class="all first_page">
+        <div class="fp_side men_side"><img src="{% static 'uploads/fp_men.jpg' %}" width="100%" />
+            <div class="fp_side_hover"></div>
+            <div class="fp_side_content">
+                <div class="fp_side_header">Для мужчин</div>
+                <div class="fp_side_txt">Здесь будет какой-либо текст</div>
+                <a href="" class="fp_side_btn">Далее</a>
+            </div>
+        </div>
+        <div class="fp_side women_side"><img src="{% static 'uploads/fp_women.jpg' %}" width="100%" />
+            <div class="fp_side_hover"></div>
+            <div class="fp_side_content">
+                <div class="fp_side_header">Для женщин</div>
+                <div class="fp_side_txt">Здесь будет какой-либо текст</div>
+                <a href="" class="fp_side_btn">Далее</a>
+            </div>
+        </div>
+        <div class="fp_center">
+            <div class="fpcenter_header">Здесь будет какой-либо текст</div>
+            <div class="fpcenter_content">Здесь будет какой-либо текст</div>
+        </div>
+    </div>
+{% endblock %}

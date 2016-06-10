@@ -1,0 +1,22 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block head_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/agile.js' %}"></script>
+{% endblock %}
+
+{% block title%}Super5 персональные данные{% endblock %}
+
+{% block content %}
+    <div class="all with_left_column clearfix stripedbkg -p-personalDataMaster">
+        <div class="content_container clearfix">
+            <div class="title_grey">Личные данные</div>
+
+            <div class="formpage_container -p-personalDataMaster">
+                {% block form %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

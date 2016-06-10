@@ -1,0 +1,79 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 регистрация{% endblock %}
+
+{% block content %}
+    <div class="all stripedbkg clearfix">
+        <div class="content_container clearfix">
+            <div class="formpage_container register_container">
+                <div class="formpage_title">Регистрация в <span class="red_color">Super</span>5</div>
+                <div class="form_container register_form">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="form_row clearfix">
+                            <div class="email_container">
+                                {% if form.email.errors %}
+                                    {{ form.email.errors }}
+                                {% endif %}
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="form_row clearfix">
+                            {% if form.password.errors %}
+                                {{ form.password.errors }}
+                            {% endif %}
+                            {{ form.password1 }}
+                            {{ form.password2 }}
+                        </div>
+
+                        <div class="form_row clearfix">
+                            <div class="separ_line_title"><span>или</span></div>
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="socialreg_container">
+                                <div class="social_title">Регистрация через социальные сети</div>
+                                <ul class="social_icons">
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'vk-oauth2' %}">
+                                            <img src="{% static 'images/vk.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'facebook' %}">
+                                            <img src="{% static 'images/facebook.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'google-oauth2' %}">
+                                            <img src="{% static 'images/google.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'odnoklassniki-oauth2' %}">
+                                            <img src="{% static 'images/ok.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'mailru-oauth2' %}">
+                                            <img src="{% static 'images/mailru.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                    <li class="social_item">
+                                        <a href="{% url 'social:begin' 'yandex-oauth2' %}">
+                                            <img src="{% static 'images/yandex.png' %}" width="52" height="48" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="submit_container">
+                            <input type="submit" class="form_submit" value="Дальше">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

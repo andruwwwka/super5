@@ -1,0 +1,54 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 блог{% endblock %}
+
+{% block content %}
+    <div class="all with_right_column clearfix | footer-offset-trick">
+        <div class="content_container clearfix">
+            <div class="title_grey">Блог</div>
+            <div class="articles_container">
+                {% for post in posts %}
+                    <div class="article_item">
+                        <div class="article_title">{{ post.head }}</div>
+                        <div class="article_info">
+                            <div class="article_avtor">Автор {{ post.author.username }}</div>
+                            <div class="article_date">Опубликовано {{ post.post_date }}</div>
+                        </div>
+                        <div class="article_desc clearfix">
+                            <p>{{ post.body|safe }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="right_column">
+                <div class="sub_item">
+                    <div class="sub_title">Архив</div>
+                    <div class="sub_content">
+                        <div class="archive_menu">
+                            <ul class="year_menu">
+                                {% for item in archive %}
+                                    <li>
+                                        <div class="year_title">{{ item.year }}</div>
+                                        <ul class="months_menu">
+                                            {% for value in item.year_posts %}
+                                                <li>
+                                                    <div class="month_title ">{{ value.month }} <span class="article_count">({{ value.count }})</span> </div>
+                                                    <ul class="articles_menu">
+                                                        {% for post in value.month_posts %}
+                                                            <li><a href="" class="article_link">{{ post.head }}<i class="more_line"></i></a></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

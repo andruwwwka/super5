@@ -1,0 +1,59 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 дневник тренировок{% endblock %}
+
+{% block content %}
+    <div class="all clearfix">
+        <div class="content_container clearfix">
+            <div class="title_black">дневник тренировок</div>
+            <div class="calendarbig_container">
+                <div class="calendar_top clearfix">
+                    <a href="{% url 'trainings:diary' year=prev_month.year month=prev_month.month day=1%}" class="calendar_prev"></a>
+                    <div class="calendar_title">
+                        <div class="calendar_monthscore">Месячный результат: {{ calories }} Калл.</div>
+                        <div class="calendar_monthyear">{{ current_month }} {{ current_date.year }}</div>
+                    </div>
+                    <a href="{% url 'trainings:diary' year=next_month.year month=next_month.month day=1 %}" class="calendar_next"></a>
+                </div>
+                <div class="calendar_content clearfix">
+
+                    {% for current_week, week in month %}
+                        <div class="cday_week_row clearfix {% if current_week %} active {% endif %}">
+                            {% for day, training in week %}
+                                {% if training %}
+                                    {% if training.date %}
+                                        <a href="{% url 'trainings:diary' year=training.date.year month=training.date.month day=training.date.day %}" class="cday day_active {% if not training.result and training.date != today %}cur_day{% endif %}"><span class="cd_num">{{ day.day }}</span><span class="cd_item"><span class="cd_time">{{ training_duration }}</span></span></a>
+                                    {% else %}
+                                        <div class="cday day_active"><span class="cd_num">{{ day.day }}</span><span class="cd_item"><span class="cd_time">{{ training_duration }}</span></span></div>
+                                    {% endif %}
+                                {% else %}
+                                    <a href="{% url 'trainings:diary_now' %}" class="cday"><span class="cd_num">{{ day.day }}</span></a>
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="calendar_day_container striped_bkg">
+                <div class="cday_title">{{ training.date }}<span class="top_line"></span></div>
+                <div class="cday_content clearfix">
+                    {% for set in training.trainingset_set.all %}
+                        {% for exercise in set.exercises.all %}
+                            <a href="" class="cday_item"><div class="cday_item_photo"><img src="uploads/diary_photo1.png" width="100%" /></div><div class="cday_item_title">{{ exercise.title }}</div><div class="cday_item_time">5 min</div></a>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="cday_btn_container">
+                    {% if not history %}
+                        <span class="bottom_line left_bottom_line"></span>
+                        <a {% if training %} href="{% url 'trainings:training' %}" {% endif %} class="btn-workout -save">{{ button_text.1 }}</a>
+                        <span class="bottom_line right_bottom_line"></span>
+                    {% endif %}
+                    <p class="justify_line"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 основкая тренировка{% endblock %}
+
+{% block content %}
+    <div class="all clearfix">
+        <div class="content_container clearfix">
+
+            <div class="calendarbig_container">
+                <div class="calendar_top clearfix">
+                    <a href="" class="calendar_prev"></a>
+                    <div class="calendar_title">
+                        <div class="calendar_monthscore">Месячный результат: 7729 Кал.</div>
+                        <div class="calendar_monthyear">Август 2014</div>
+                    </div>
+                    <a href=""  class="calendar_next"></a>
+                </div>
+                <div class="calendar_content clearfix">
+
+                    <div class="cday_week_row clearfix">
+                        <a href="" class="cday"><span class="cd_num">01</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">02</span><span class="cd_item"><span class="cd_place">Зал</span><span class="cd_time">155 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">03</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">04</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">05</span></a>
+                        <a class="cday day_active"><span class="cd_num">06</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a class="cday day_active"><span class="cd_num">07</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                    </div>
+
+
+                    <div class="cday_week_row active clearfix">
+                        <a href="" class="cday day_active"><span class="cd_num">08</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">09</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">10</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">11</span></a>
+                        <a href="" class="cday day_active cur_day"><span class="cd_num">12</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday cur_day"><span class="cd_num">13</span></a>
+                        <a href="" class="cday"><span class="cd_num">14</span></a>
+                    </div>
+
+
+                    <div class="cday_week_row clearfix">
+                        <a href="" class="cday"><span class="cd_num">15</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">16</span><span class="cd_item"><span class="cd_place">Зал</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">17</span></a>
+                        <a class="cday day_active"><span class="cd_num">18</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">19</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">20</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">21</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                    </div>
+
+
+
+                    <div class="cday_week_row clearfix">
+                        <a href="" class="cday day_active"><span class="cd_num">22</span><span class="cd_item"><span class="cd_place">Зал</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">23</span></a>
+                        <a href="" class="cday"><span class="cd_num">24</span></a>
+                        <a class="cday day_active"><span class="cd_num">25</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">26</span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">27</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday day_active"><span class="cd_num">28</span><span class="cd_item"><span class="cd_place">Дом</span><span class="cd_time">15 мин</span></span></a>
+                    </div>
+
+                    <div class="cday_week_row clearfix">
+                        <a href="" class="cday day_active"><span class="cd_num">29</span><span class="cd_item"><span class="cd_place">Зал</span><span class="cd_time">15 мин</span></span></a>
+                        <a href="" class="cday"><span class="cd_num">30</span></a>
+                        <a href="" class="cday"><span class="cd_num">31</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="workouts_container striped_bkg">
+                <div class="workouts_title">
+                    <a href="" class="cday_start_btn">Начать тренировку</a>
+                    <span class="top_line_main"></span>
+                    <!-- <div class="workouts_title_line"></div> -->Упражнения на сегодня
+                </div>
+
+                <div class="workouts_content clearfix">
+                    <div class="flex_row">
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">1</span></span>
+                        </a>
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">2</span></span>
+                        </a>
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">3</span></span>
+                        </a>
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">4</span></span>
+                        </a>
+                    </div>
+                    <div class="flex_row">
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">5</span></span>
+                        </a>
+                        <a href="" class="workouts_item paused">
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">15 минут</span></span>
+                        </a>
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">7</span></span>
+                        </a>
+                        <a href="" class="workouts_item">
+                            <span class="workouts_item_photo"><img src="{% static 'uploads/diary_photo1.png' %}" width="100%" /></span>
+                            <span class="workouts_item_title">cross fit - современная тренировка
+                                <span class="workouts_item_desc">Здесь будет какой-либо текст</span>
+                            </span>
+                            <span class="workouts_item_time_container">
+                            <span class="workouts_item_time">45 минут</span>
+                            <span class="workouts_item_num">8</span></span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="cday_btn_container">
+                    <span class="bottom_line left_bottom_line"></span>
+                    <a href="" class="cday_start_btn">начать тренировку</a>
+                    <span class="bottom_line right_bottom_line"></span>
+                    <p class="justify_line"></p>
+                    <!-- <div class="cday_btn_container_after"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

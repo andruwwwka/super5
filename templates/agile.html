@@ -1,0 +1,23 @@
+{% load static %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".targetsColumn").sortable({
+        // Для биндинга события при отпускания клавиши при изменения Приоритетов, Зон
+        stop: function( event, ui ) {
+            changePriority();
+        }
+    });
+  });
+</script>
+
+
+<div id="agile_table" class="targetsColumn">
+    {% for target in form.targets %}
+        <div id="{{ form.PREFIX }}_{{ target.0 }}" class="draggable">
+            {{ target.1 }}
+        </div>
+    {% endfor %}
+</div>

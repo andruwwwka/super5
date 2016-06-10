@@ -1,0 +1,43 @@
+{% extends 'personal_data_base.html' %}
+
+{% load static %}
+
+{% block form %}
+	<div class="l-personalDataMaster -bobottom">
+		<p class="wizard_step">Шаг {{ wizard.steps.step1 }} из {{ wizard.steps.count }}</p>
+		<p class="wizard_params">{{ wizard.form.TITLE }}</p>
+		{% if wizard.steps.step1 == 6 %}
+			<p class="wizard_params -mt20">Выберите дни недели для занятий (Вам доступно <span class="wizard-days-count">{{ form.get_days_count }}</span>)</p>
+		{% endif %}
+	</div>
+    <form action="" method="post" onsubmit="changePriority()">{% csrf_token %}
+            {{ wizard.management_form }}
+            {% if wizard.form.forms %}
+                {{ wizard.form.management_form }}
+                {% for form in wizard.form.forms %}
+                    {{ form }}
+                {% endfor %}
+            {% else %}
+                {% if wizard.steps.step1 == 1  or wizard.steps.step1 == 2  or wizard.steps.step1 == 3 or wizard.steps.step1 == 6 %}
+                    {% with wizard.form as form %}
+                        <div class="form_container">
+                            {% include 'personal_data_base_fields.html' %}
+                        </div>
+                    {% endwith %}
+                {% else %}
+                    {% with wizard.form as form %}
+						<div class="drag-list -p-personalDataMaster">
+							{% include 'agile.html' %}
+						</div>
+                    {% endwith %}
+                {% endif %}
+            {% endif %}
+		<div class="l-personalDataMaster -botop -mt -mb -pt">
+        {% if wizard.steps.prev %}
+			<button name="wizard_goto_step" type="submit" class="btn-grey -w250 -mr" value="{{ wizard.steps.first }}">Первый шаг</button>
+			<button name="wizard_goto_step" type="submit" class="btn-grey -w250 -mr" value="{{ wizard.steps.prev }}">Назад</button>
+        {% endif %}
+			<input type="submit" class="btn-red -w250" value="Дальше"/>
+		</div>
+    </form>
+{% endblock %}

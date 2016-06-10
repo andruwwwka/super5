@@ -1,0 +1,41 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title%}Super5 инициализация{% endblock %}
+
+{% block content %}
+    <div class="all stripedbkg clearfix">
+        <div class="content_container clearfix">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="formpage_container initialization_container">
+                    <div class="formpage_title">Данные пользователя</div>
+                    <div class="form_container register_form">
+                        {{ form.errors }}
+                        <div class="form_row clearfix">
+                            {{ form.height }}
+                            {{ form.width }}
+                        </div>
+                        <div class="form_row clearfix">
+                            <div class="birthday_container"><span>Д.р.:</span>
+                                <input type="text" id="datepicker" name="{{ field.name }}" value="{{ form.birthday_title }}">
+                            </div>
+                            <div class="select_field_container clearfix">
+                                <input class="select_value" type="hidden" name="gender" value="">
+                                <div class="select_value_title">{{ form.gender_title }}</div><i class="select_btn"></i>
+                                <ul class="select_list">
+                                    {% for key, val in form.gender.field.choices %}
+                                        <li data-select_val={{ key }}>{{ val }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="submit_container">
+                            <input type="submit" class="form_submit" value="Дальше">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 текущая тренировка{% endblock %}
+
+{% block content %}
+    <input type="hidden" name="training_response" value="{{ training }}">
+    <div class="all clearfix">
+        <div class="content_container clearfix">
+            <div class="subtitle_red training_program"><p>Тренировочная программа сжигания жира день 17</p>
+                <div class="subtitle_right">{{ weekday }} {{ current_date.day }}.{{ current_date.month }}</div>
+            </div>
+            <div class="subtitle_red trainer">тренер: Martin o’nail
+                <a href="{% url 'trainings:diary_now' %}" class="subtitle_right">вернуться к календарю тренировок</a>
+            </div>
+            <div class="video_container">
+                <div class="video_time">00:45:00</div>
+                <div class="video_content">
+                    <i class="video_content_before"></i>
+                    <div class="video_preview">
+						<div class="video_photo"><img src="{% static 'uploads/video_photo.jpg' %}" width="100%" /></div>
+						<a href="#" class="btn-workout -start -abs">Начать тренировку</a>
+                    </div>
+					<div class="training-player-l hidden">
+						<iframe id="player1" class="training-player active" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<iframe id="player2" class="training-player hidden" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					</div>
+                </div>
+            </div>
+            <div class="video_info">
+                <div class="video_avtor clearfix">
+                    <div class="vavtor_name">Marek Dabrowski
+                        <div class="vavtor_address">Варшава  |  Польша  |  27</div>
+                    </div>
+                    <div class="vavtor_point">5.9</div>
+                </div>
+                <div class="vavtor_txt">Здесь будет какой-либо текст</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer_js %}
+	<!--vimeo api-->
+	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+	<!--vimeo js-->
+	<script src="{% static 'js/vimeo.js' %}"></script>
+{% endblock %}
+

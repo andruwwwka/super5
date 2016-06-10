@@ -1,0 +1,80 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 faq{% endblock %}
+
+{% block content %}
+    <div class="all with_left_column clearfix">
+        <div class="content_container clearfix">
+            <div class="title_grey">FAQ</div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="search_container">
+                    <div class="search_icon"></div>
+                    <div class="search_field">
+                        <input name="search_field" type="text">
+                    </div>
+                    <div class="search_btn">
+                        <input name="search_btn" type="image" src="{% static 'images/btn_search.png' %}" value="">
+                    </div>
+                </div>
+                <div class="left_column">
+                    <ul class="left_submenu">
+                        {% for category in categories %}
+                            <li><a href="{% url 'faq:category' category_id=category.id %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="faq_container">
+					{% if message %}
+					   <div class="faq_answer">
+							{{ message }}
+					   </div>
+					{% endif %}
+                    {% for answer in answers %}
+                        <div class="faq_item">
+                            <div class="faqitem_header">{{ answer.question.text }}</div>
+                            <div class="faqitem_content">{{ answer.text }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="faq_form clearfix">
+
+                    <div class="form_row clearfix">
+                       <div class="l-error-pos-rel -p-faq">
+							{% if form.email.errors %}
+								<div class="l-error-pos-abs">
+									{{ form.email.errors }}
+								</div>
+							{% endif %}
+							{{ form.email }}
+                       </div>
+                        <span class="and_simbol">&amp;</span>
+                        <div class="l-error-pos-rel -p-faq">
+							{% if form.category.errors %}
+								<div class="l-error-pos-abs">
+									{{ form.category.errors }}
+								</div>
+							{% endif %}
+							{{ form.category }}
+                        </div>
+                        <p class="justify_line"></p>
+                    </div>
+
+                    <div class="form_row clearfix">
+                        <div class="l-error-pos-rel -p-faq -textarea">
+							{% if form.text.errors %}
+								<div class="l-error-pos-abs">
+									{{ form.text.errors }}
+								</div>
+							{% endif %}
+							{{ form.text }}
+                        </div>
+                    </div>
+
+                    <input type="submit" class="form_submit" value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

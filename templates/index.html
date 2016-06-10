@@ -1,0 +1,117 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+{% block title %}Super5 - персональный мобильный фитнес-тренер{% endblock %}
+{% block add_css %}
+	<link href="{% static 'components/slick/slick.css' %}" rel="stylesheet">
+{% endblock %}
+{% block footer_js %}
+	<!--slick-->
+	<script src="{% static 'components/slick/slick.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			$('.slick-index').slick({
+				arrows: false,
+				dots: true,
+				autoplay: false,
+				autoplaySpeed: 6000,
+				asNavFor: '.slick-index-info'
+			});
+			$('<div class="slick-index_line-before"></div><div class="slick-index_line-after">').prependTo('.slick-dots');
+			$('.slick-index-info').slick({
+				arrows: false,
+				dots: false,
+				draggable: false,
+				fade: true,
+			});
+		});
+
+
+	</script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="all clearfix">
+        <div class="content_container clearfix">
+            <div class="content_row border_b4 clearfix">
+				<div class="slider-l">
+
+					<!--slick-index-->
+					<div class="slick-index">
+						{% for slide in slides %}
+								<div class="slick-index_item">
+									<img class="slick-index_img" src="{{ slide.photo_or_link }}" />
+								</div>
+						{% endfor %}
+					</div>
+					<!--slick-index-info-->
+					<div class="slick-index-info">
+						{% for slide in slides %}
+							<div class="slick-index-info_item">
+								<h2 class="slick-index-info_title">{{ slide.title }}</h2>
+								<h3 class="slick-index-info_subtitle">{{ slide.under_title }}</h3>
+								<p class="slick-index-info_text">{{ slide.body }}</p>
+							</div>
+						{% endfor %}
+					</div>
+
+            	</div>
+            </div>
+
+
+<!--
+		   {% for post in posts %}
+                {{ post.head }}
+                {{ post.body }}
+                {{ post.author }}
+                {{ post.post_date }}
+                {{ post.photo }}
+                {{ post.video }}
+                {{ post.title_main }}
+                {{ post.body_main }}
+            {% endfor %}
+-->
+
+
+<!--
+			<div class="content_row clearfix flex_row">
+				<div class="cell cell3-1"><img src="{% static 'uploads/home_photo1.jpg' %}" width="100%" /><div class="cell_content content_white"><a href="" class="cell_category">блог новостей</a><span class="cell_title">cross fit современные тренировки</span></div></div>
+				<div class="cell cell3-1 cell_video"><img src="{% static 'uploads/home_photo2.jpg' %}" width="100%" /><div class="cell_content content_white"><a href="" class="cell_category">новое видео</a><span class="cell_title">cross fit современные тренировки</span></div><div class="cell_content content_black -css-animate"><i class="content_black_arrow"></i><span class="cell_text">Здесь будет какой-либо текст</span></div><i class="video_play"></i></div>
+				<div class="cell cell3-1 cell_video"><img src="{% static 'uploads/home_photo3.jpg' %}" width="100%" /><div class="cell_content content_white"><a href="" class="cell_category">новое видео</a><span class="cell_title">cross fit современные тренировки</span></div><div class="cell_content content_black -css-animate"><span class="cell_text">Здесь будет какой-либо текст</span><i class="content_black_arrow"></i></div><i class="video_play"></i></div>
+			</div>
+-->
+
+            <div class="content_row border_b4 clearfix flex_row">
+				{% for post in posts %}
+					<div class="cell cell4-1">
+						<div class="cell_bg" role="img" style="background-image: url( {{ post.photo }} )"></div>
+						<div class="cell_content content_white -css-animate">
+							<a href="/blogs/" class="cell_category">блог новостей</a>
+							<span class="cell_title">{{ post.title_main }}</span>
+						</div>
+						<div class="cell_content content_black -css-animate">
+							<a href="/blogs/" class="cell_category">блог новостей</a>
+							<span class="cell_title">{{ post.title_main }}</span>
+							<span class="cell_text">{{ post.body_main }}</span>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+
+            <div class="newsletter_container">
+                <div class="newsletter_title">лента новостей</div>
+                <div class="newsletter_text">Здесь будет какой-либо текст</div>
+                <div class="newsletter_form">
+                    <div class="newsletter_form_content">
+                        <div class="newsletter_form_icon"></div>
+                        <div class="newsletter_form_input"><input type="text" name="newsletter_mail" placeholder="your email adress"></div>
+                        <div class="newsletter_form_submit">
+                        	<button class="btn-search -p-index" name="search_btn">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'personal_data_base.html' %}
+
+{% load static %}
+
+{% block form %}
+    <form method="post" enctype="multipart/form-data" onsubmit="changePriority()">
+        {% csrf_token %}
+        <div class="form_container">
+        	<div class="form_container_col">
+				{% include 'personal_data_base_fields.html' %}
+            </div>
+            <div class="form_container_col">
+				{% if target_form %}
+					{% with target_form as form %}
+						<div class="dragndrop-list">
+							<div class="dragndrop-list_title">{{ form.TITLE }}</div>
+							{% include 'agile.html' %}
+						</div>
+					{% endwith %}
+				{% endif %}
+				{% if zone_form %}
+					{% with zone_form as form %}
+						<div class="dragndrop-list">
+							<div class="dragndrop-list_title">{{ form.TITLE }}</div>
+							{% include 'agile.html' %}
+						</div>
+					{% endwith %}
+				{% endif %}
+            </div>
+            <div class="submit_container">
+                <input type="submit" class="form_submit" value="Сохранить">
+            </div>
+        </div>
+    </form>
+{% endblock %}

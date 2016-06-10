@@ -1,0 +1,56 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 контакты{% endblock %}
+
+{% block content %}
+    <div class="all clearfix">
+        <div class="content_container clearfix">
+            <div class="title_red">Контакты</div>
+            <div class="subtitle_red">Здесь будет какой-либо текст</div>
+            <div class="author_articles_container">
+                <div class="author_articles_row clearfix">
+                    <div class="author_article_item without_photo">
+                        <div class="author_article_text">
+                            <div class="author_article_title">Здесь будет какой-либо текст</div>
+                            <div class="author_article_desc">
+                                <p>Здесь будет какой-либо текст</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="author_article_item without_photo">
+                        <div class="author_article_text">
+                            <div class="author_article_title">Что такое SUPER5</div>
+                            <div class="author_article_desc">
+                                <p>Здесь будет какой-либо текст</p>
+                                <p>Здесь будет какой-либо текст</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="author_articles_row">
+                    <div class="author_article_item clearfix">
+                        <div class="author_article_photo toleft"><img src="{% static 'uploads/Author_photo.jpg' %}" width="100%" /></div>
+                        <div class="author_article_text toleft text_with_photo">
+                            <div class="author_article_title">Здесь будет какой-либо текст</div>
+                            <div class="author_article_desc">
+                                <p>Здесь будет какой-либо текст</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="author_article_item clearfix">
+                        <div class="author_article_photo toright"><img src="{% static 'uploads/Author_photo.jpg' %}" width="100%" /></div>
+                        <div class="author_article_text toright text_with_photo">
+                            <div class="author_article_title">Что такое SUPER5</div>
+                            <div class="author_article_desc">
+                                <p>Здесь будет какой-либо текст</p>
+                                <p>Здесь будет какой-либо текст</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

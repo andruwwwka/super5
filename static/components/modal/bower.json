@@ -1,0 +1,19 @@
+{
+  "name": "modal",
+  "version": "0.0.0",
+  "homepage": "https://gist.github.com/b690d2621112f703b3d8.git",
+  "authors": [
+    "rosivanov <ros.g6w@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+  }
+}

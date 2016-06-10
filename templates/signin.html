@@ -1,0 +1,37 @@
+{% extends 'super5_base_site.html' %}
+{% load static %}
+
+{% block title %}Super5 вход{% endblock %}
+
+{% block content %}
+    <div class="all stripedbkg clearfix">
+        <div class="content_container clearfix">
+            <div class="formpage_container signin_container">
+                <div class="formpage_title">Авторизоваться в <span class="red_color">Super</span>5</div>
+                <div class="form_container">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form_row clearfix">
+                            {% if form.email.errors %}
+                                {{ form.email.errors }}
+                            {% endif %}
+                            {{ form.email }}
+
+                            {% if form.password.errors %}
+                                {{ form.password.errors }}
+                            {% endif %}
+                            {{ form.password }}
+                        </div>
+                        <div class="submit_container">
+                        	<input type="submit" class="form_submit" value="Вход">
+                        	<span class="noaccount">У Вас нет аккаунта в SUPER5? <a href="{% url 'accounts:register' %}" class="red_color -upspeceficity">Создать</a></span>
+                        </div>
+                        <div class="form_row create_account -center">
+                        	<a href="{% url 'password_reset' %}" class="red_color">Забыли пароль?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

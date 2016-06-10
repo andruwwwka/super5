@@ -1,0 +1,24 @@
+{% for field in form %}
+    <div class="form_row clearfix -p-personalDataMaster">
+        {% if field.errors %}
+            {{ field.errors }}
+        {% endif %}
+        {% if field.label == 'Дата рождения' %}
+            <input type="text" id="datepicker" name="{{ field.name }}" value="{{ form.birthday_title }}">
+        {% elif field.label == 'Дни недели' %}
+            <ul class="training-days-list">
+                {% for field in form.week_day %}
+                   <li class="training-days-list_item">
+                        {{ field.tag }}
+                       <label class="training-days-list_label" for="">
+                            <span class="checkbox-square -training-days-list"></span>
+                            <span class="training-days-list_day">{{ field.choice_label }}</span>
+                        </label>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{ field }}
+        {% endif %}
+    </div>
+{% endfor %}
